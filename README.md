@@ -1,3 +1,6 @@
+One PubSub: A PubSub Library for Lightning Web Component and Lightning Component
+-------------
+
 <div align="center">
   <img alt="One Pub Sub"
        src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/one%20pub%20sub.png">
@@ -22,7 +25,7 @@ Features
 
 Documentation
 -------------
-One Library: This is a PubSub library to fire and handle events. It is a single solution that can be used in LWC and Aura when it comes to PubSub. It allows you to send and receive an event from:
+**One Library:** This is a PubSub library to fire and handle events. It is a single solution that can be used in LWC and Aura when it comes to PubSub. It allows you to send and receive an event from:
 1. LWC to LWC
 2. LWC to Aura
 3. Aura to LWC
