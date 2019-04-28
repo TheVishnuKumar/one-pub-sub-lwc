@@ -1,4 +1,3 @@
-****
 <div align="center">
   <img alt="One Pub Sub"
        src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/one%20pub%20sub.png">
