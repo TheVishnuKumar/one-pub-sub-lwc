@@ -28,48 +28,38 @@ The uniformaty of using the one library allows you to code less error prone.
 Register Event:
 
 Registring event in Aura Component:
-<c:one_register_event name="EVENT_NAME" aura:id="first-event"></c:one_register_event>
+<c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event"></c:one_register_event>
 
 Registring event in LWC Component:
-<c-one_register_event name="EVENT_NAME" class="first-event"></c-one_register_event>
+<c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event"></c-one_register_event>
 
 Hnading Events:
 Handling event in Aura Component:
-<c:one_event_handler name="EVENT_NAME" onaction="{!c.handleEvent}"></c:one_event_handler>
+<c:one_event_handler name="EVENT_NAME" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
 
 Handling event in LWC Component:
-<c-one_event_handler name="EVENT_NAME" onaction={handleEvent}></c-one_event_handler>
+<c-one_event_handler name="EVENT_NAME" namespace="astro" onaction={handleEvent}></c-one_event_handler>
 
 
 Attributes
 ----------
 This component has three types of attributes.
-1. **channel**: This is required attribute. Define the channel name. Ex:  /topic/NewContactCreated and event/My_Event__e.
+1. **name**: This is required attribute. Define the channel name. Ex:  /topic/NewContactCreated and event/My_Event__e.
 
-2. **api-version**: This is an optional attribute. It defines that which API version will be used for cometd. If you omit this then it will take 45.0 as the default version.
+2. **namespace**: This is an optional attribute. It defines that which API version will be used for cometd. If you omit this then it will take 45.0 as the default version.
 
-3. **debug**: This is an optional attribute. It takes the boolean value as the parameter. It allows you to see various logs on console. By default, this is set to false if you omit this.
 
 Events
 ------
 This component has two types of events.
-1. **onmessage**: This event fire when any streaming API sends the payload/message. You need to define the handler for your component to get the value from this event.
+1. **onaction**: This event fire when any streaming API sends the payload/message. You need to define the handler for your component to get the value from this event.
 You can get payload from this: event.detail.payload
-
-2. **onerror**: This event fire if any kind of error happens at the LWC streaming API component. You need to define the handler for your component to get the error message from this event.
-You can get the error from this: event.detail.error
-
-**Note**: You can define debug=true to see all the console results as well.
 
 
 Methods
 ----------
 This component has three types of methods that you can use to re-subscribe, unsubscribe and check the status of the subscription.
-1. **subscribe()**: Subscribe the channel if it was destroyed or unsubscribe. You cannot Subscribe a channel if it already Subscribed. It prevents the multiple payload event from streaming API.
-
-2. **unsubscribe()**: Unsubscribe the channel. You can Subscribe a channel if it is unsubscribed. We can use this to stop receiving payloads.
-
-3. **checkConnection()**: This method returns true or false. If the channel is subscribed then it will return the true else false.
+1. **fire()**: Subscribe the channel if it was destroyed or unsubscribe. You cannot Subscribe a channel if it already Subscribed. It prevents the multiple payload event from streaming API.
 
 
 Example
