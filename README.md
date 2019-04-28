@@ -1,3 +1,7 @@
+<div align="center">
+  <img alt="One Pub Sub"
+       src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/one%20pub%20sub.png">
+</div>
 <a href="https://githubsfdeploy.herokuapp.com?owner=TheVishnuKumar&repo=">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
