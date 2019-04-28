@@ -17,7 +17,7 @@ Features
 - Uniformity across the LWC and Aura Components to use the PubSub events.
 - Use namespace to define the group the events.
 - The pattern of use is quite the same as the Aura Component events. Easy for the Aura Component Developers.
-- **Future Release** More features will be there.
+- **Future Release** More features will be here.
 
 
 Documentation
