@@ -72,6 +72,12 @@ This component one type of method that you can use to fire the PubSub event.
 1.1) LWC: this.template.querySelector('.<Class Name>').fire('Fired Event from LWC.');
 1.2) Aura: component.find("<Aura ID>").fire('Fired Event from Aura Component.');
 
+One PubSub Flow
+----------
+<div align="center">
+<img alt="One PubSub for Lightning Web Component and Lightning Component"
+       src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/One%20PubSub.jpg">
+</div>
 
 Example
 -------------
