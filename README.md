@@ -52,8 +52,8 @@ Attributes
 This component has two types of attributes.
 1. **name**: This is the required attribute. Define the name of the PubSub event to subscribe and fire.
 
-2. **namespace**: This is an optional attribute. It does allow you to bundle the events for a particular feature/module.
-Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can divide them using the namespace. You can have 'refresh-list' event name in both the module.
+2. **namespace**: This is an optional attribute. It does allow you to bundle the events for a particular feature/module.<br/>
+Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can separate them using the namespace. You can have 'refresh-list' event name in both the module.
 
 
 Events
