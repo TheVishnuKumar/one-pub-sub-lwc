@@ -33,17 +33,21 @@ The uniformity of using the one library allows you to write the code less error-
 **Register Event:**
 
 Registering event in Aura Component:
+
 <c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event"></c:one_register_event>
 
 Registering event in LWC:
+
 <c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event"></c-one_register_event>
 
 **Hnading Events:**
 
 Handling event in Aura Component:
+
 <c:one_event_handler name="EVENT_NAME" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
 
 Handling event in LWC:
+
 <c-one_event_handler name="EVENT_NAME" namespace="astro" onaction={handleEvent}></c-one_event_handler>
 
 
