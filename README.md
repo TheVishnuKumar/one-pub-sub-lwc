@@ -72,111 +72,35 @@ This component one types of methods that you can use to re-subscribe, unsubscrib
 
 Example
 -------------
-**Step 1.** Create a push topic using the Developer Console. Copy the following code and execute in the developer console.
-What will it do? It will create a push topic name NewContactCreated. Whenever a contact record gets created. It will send the payload to the onmessage event.
-```
-PushTopic pushTopic = new PushTopic();
-pushTopic.Name = 'NewContactCreated';
-pushTopic.Query = 'select Id,Name from Contact';
-pushTopic.ApiVersion = 45.0;
-pushTopic.NotifyForOperationCreate = true;
-pushTopic.NotifyForOperationUpdate = false;
-pushTopic.NotifyForOperationUndelete = false;
-pushTopic.NotifyForOperationDelete = false;
-pushTopic.NotifyForFields = 'All';
-insert pushTopic;
-```
+We are having four components here for demo. Two are LWC and Two are Aura Component.
 
-**Step 2.** Create a Lightning Web Component name as lwc_streaming_demo.
-Copy and paste the following code to the files.
-**Note**: Add the target configuration in the meta XML file. so you can add your demo component to the using the app builder. In my case, I have added the component to the home page.
-
-**lwc_streaming_demo.js**
-```javascript
-import { LightningElement,track } from 'lwc';
-
-export default class Lwc_streaming_demo extends LightningElement {
-
-    @track error = '';
-    @track payload = '';
-    @track isConnectionOn;
-
-    //Handles the error
-    handleError(event){
-        //Error is coming in the event.detail.error
-        this.error = JSON.stringify(event.detail.error);
-    }
-
-    //Handles the message/payload from streaming api
-    handleMessage(event){
-        //Message is coming in event.detail.payload
-        this.payload = this.payload + JSON.stringify(event.detail.payload);
-    }
-
-    //This method is subscribing the channel
-    restart(){
-        this.template.querySelector('.lwc_streaming_api-1').subscribe();
-    }
-
-    //This method is unsubscribing the channel
-    destroy(){
-        this.template.querySelector('.lwc_streaming_api-1').unsubscribe();
-
-        this.payload = '';
-        this.error = '';
-    }
-
-    //This method is checking if the channel is subscribed or not
-    checkConnection(){
-        this.isConnectionOn = this.template.querySelector('.lwc_streaming_api-1').checkConnection();
-    }
-}
-```
-
-**lwc_streaming_demo.html**
+**Step 1.** Create demo_component_1 lwc. This component is firing the event.
 ```html
 <template>
-    <c-lwc_streaming_api 
-        channel="/topic/NewContactCreated" 
-        api-version="45.0" 
-        debug=true
-        onmessage={handleMessage} 
-        onerror={handleError} 
-        class="lwc_streaming_api-1">
-    </c-lwc_streaming_api>
+    <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
+        <h1 style="font-size: 15px;">LWC Component: Firing Event</h1>
 
-    <lightning-button label="Destroy Connection"  onclick={destroy}></lightning-button>
+        <c-one_register_event name="testevent" namespace="astro" class="first-event"></c-one_register_event>
 
-    <lightning-button label="Restart Connection"  onclick={restart}></lightning-button>
-
-    <lightning-button label="Check Connection"  onclick={checkConnection}></lightning-button>
-
-    <div style="background: white;padding: 50px;">
-        <div style="margin:20px;">
-            Payload
-            <br/>
-            {payload}
-        </div>
-        
-        <div style="margin:20px;">
-            Error:
-            <br/>
-            {error}
-        </div>
-
-        <div style="margin:20px;">
-            Is Connection On:
-            <br/>
-            {isConnectionOn}
-        </div>
+        <lightning-button label="Fire Event From LWC" onclick={fireEvent}></lightning-button>
     </div>
 </template>
 ```
 
-**lwc_streaming_demo.js-meta.xml**
+```javascript
+import { LightningElement } from 'lwc';
+
+export default class Demo_component_1 extends LightningElement {
+
+    fireEvent(){
+        this.template.querySelector('.first-event').fire('Fired Event from LWC.');
+    }
+}
+```
+
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="lwc_streaming_demo">
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="demo_component_1">
     <apiVersion>45.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>
@@ -185,28 +109,88 @@ export default class Lwc_streaming_demo extends LightningElement {
 </LightningComponentBundle>
 ```
 
-**Step 3.** Open your demo component. Now create some contact records and you will see the message/payload on the screen.
+**Step 2.** Create demo_component_2 lwc. This component is handling the event.
+```html
+<template>
+    <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
+        <h1 style="font-size: 15px;">LWC Component: Handling Event</h1>
 
-**Step 4 (Optional)**: If you want to try it with platform events. Create a platform event object. Subscribe it using below code.
-```
-<c-lwc_streaming_api 
-        channel="/event/Test_Event__e" 
-        api-version="45.0" 
-        debug=true
-        onmessage={handleMessage} 
-        onerror={handleError} 
-        class="lwc_streaming_api-1">
-    </c-lwc_streaming_api>
-```
-Here Test_Event__e is my platform event object name.
+        <c-one_event_handler name="testevent" namespace="astro" onaction={handleEvent}></c-one_event_handler>
 
-Now create platform event records using below code:
+        <br/>
+        {data}
+    </div>
+</template>
 ```
-Test_Event__e te = new Test_Event__e ();
-te.Test_Field__c  = 'test data';
-Database.SaveResult sr = EventBus.publish(te);
+
+```javascript
+import { LightningElement,track } from 'lwc';
+
+export default class Demo_component_2 extends LightningElement {
+    @track data;
+
+    handleEvent(event){
+        this.data = event.detail.payload;
+    }
+}
 ```
-I have used a custom text field (Test_Field__c) in the platform event.
+
+```html
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="demo_component_2">
+    <apiVersion>45.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
+```
+
+**Step 3.** Create aura_component_1 Aura Component. This component is handling the event.
+```html
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
+        <h1 style="font-size: 15px;">Aura Component: Firing Event</h1>
+
+        <c:one_register_event name="testevent" namespace="astro" aura:id="first-event"></c:one_register_event>
+
+        <lightning:button label="Fire Event From Aura" onclick="{!c.fireEvent}"></lightning:button>
+    </div>
+</aura:component>
+```
+
+```javascript
+({
+    fireEvent : function(component, event, helper) {
+        component.find("first-event").fire('Fired Event from Aura Component.');
+    }
+})
+```
+
+**Step 4.** Create aura_component_2 Aura Component. This component is handling the event.
+```html
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="data" type="String" />
+    <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;height: 120px;">
+        <h1 style="font-size: 15px;">Aura Component: Handling Event</h1>
+
+        <c:one_event_handler name="testevent" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
+
+        <br />
+
+        {!v.data}
+    </div>
+</aura:component>
+```
+
+```javascript
+({
+    handleEvent : function(component, event, helper) {
+        component.set("v.data", event.getParam('payload') );
+    }
+})
+```
+
 
 Code on  <a href="https://gist.github.com/TheVishnuKumar/c692e4a2c908e95b990966f36804ca14">gist</a>
 
