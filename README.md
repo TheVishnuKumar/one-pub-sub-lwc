@@ -1,4 +1,4 @@
-One PubSub: A PubSub Library for Lightning Web Component and Lightning Component
+One PubSub: A PubSub Library for Lightning Web Component and Aura Component
 -------------
 
 <div align="center">
