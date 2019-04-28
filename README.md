@@ -72,16 +72,18 @@ This component one types of methods that you can use to re-subscribe, unsubscrib
 
 Example
 -------------
-We are having four components here for demo. Two are LWC and Two are Aura Component.
+We are having four components here for demo. Two are LWC and Two are Aura Component. These components will be firing events and the handling event.
 
-**Step 1.** Create demo_component_1 lwc. This component is firing the event.
+**Step 1.** Create demo_component_1 lightning web component. This component is firing the event.
 ```html
 <template>
     <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
         <h1 style="font-size: 15px;">LWC Component: Firing Event</h1>
-
+        
+        <!--Registering the event-->
         <c-one_register_event name="testevent" namespace="astro" class="first-event"></c-one_register_event>
-
+        
+        <!--Firing the event in the fireEvent method-->
         <lightning-button label="Fire Event From LWC" onclick={fireEvent}></lightning-button>
     </div>
 </template>
@@ -89,11 +91,17 @@ We are having four components here for demo. Two are LWC and Two are Aura Compon
 
 ```javascript
 import { LightningElement } from 'lwc';
-
 export default class Demo_component_1 extends LightningElement {
-
+    
     fireEvent(){
+        //Getting the component using querySelector then firing the event using fire() method.
         this.template.querySelector('.first-event').fire('Fired Event from LWC.');
+        
+        /*
+        You can use this way as well.
+        let firstEvent = this.template.querySelector('.first-event');
+        firstEvent.fire('Fired Event from LWC.');
+        */
     }
 }
 ```
@@ -109,15 +117,17 @@ export default class Demo_component_1 extends LightningElement {
 </LightningComponentBundle>
 ```
 
-**Step 2.** Create demo_component_2 lwc. This component is handling the event.
+**Step 2.** Create demo_component_2 lightning web component. This component is handling the event.
 ```html
 <template>
     <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
         <h1 style="font-size: 15px;">LWC Component: Handling Event</h1>
-
+        
+        <!--Handling the event using onaction event-->
         <c-one_event_handler name="testevent" namespace="astro" onaction={handleEvent}></c-one_event_handler>
 
         <br/>
+        <!--Property to show the data from event-->
         {data}
     </div>
 </template>
@@ -130,6 +140,7 @@ export default class Demo_component_2 extends LightningElement {
     @track data;
 
     handleEvent(event){
+        //The data of event will be in the event.detail.payload
         this.data = event.detail.payload;
     }
 }
@@ -151,9 +162,11 @@ export default class Demo_component_2 extends LightningElement {
 <aura:component implements="flexipage:availableForAllPageTypes" access="global">
     <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;">
         <h1 style="font-size: 15px;">Aura Component: Firing Event</h1>
-
+        
+        <!--Registering the event-->
         <c:one_register_event name="testevent" namespace="astro" aura:id="first-event"></c:one_register_event>
-
+        
+        <!--Firing the event in the fireEvent method-->
         <lightning:button label="Fire Event From Aura" onclick="{!c.fireEvent}"></lightning:button>
     </div>
 </aura:component>
@@ -162,7 +175,15 @@ export default class Demo_component_2 extends LightningElement {
 ```javascript
 ({
     fireEvent : function(component, event, helper) {
+        //Getting the component using querySelector then firing the event using fire() method.
         component.find("first-event").fire('Fired Event from Aura Component.');
+        
+        /*
+        You can use this way as well.
+        var firstEvent = component.find("first-event");
+        firstEvent.fire('Fired Event from Aura Component.');
+        */
+        
     }
 })
 ```
@@ -173,11 +194,13 @@ export default class Demo_component_2 extends LightningElement {
     <aura:attribute name="data" type="String" />
     <div style="padding: 20px;background: white;margin: 10px;border-radius: 4px;height: 120px;height: 120px;">
         <h1 style="font-size: 15px;">Aura Component: Handling Event</h1>
-
+      
+        <!--Handling the event using onaction event-->
         <c:one_event_handler name="testevent" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
 
         <br />
-
+        
+        <!--Property to show the data from event-->
         {!v.data}
     </div>
 </aura:component>
@@ -185,6 +208,7 @@ export default class Demo_component_2 extends LightningElement {
 
 ```javascript
 ({
+    //The data of event will be in the payload param
     handleEvent : function(component, event, helper) {
         component.set("v.data", event.getParam('payload') );
     }
