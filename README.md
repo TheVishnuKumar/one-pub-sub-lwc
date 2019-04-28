@@ -1,70 +1,72 @@
+****
 <div align="center">
   <img alt="One Pub Sub"
        src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/one%20pub%20sub.png">
 </div>
-<a href="https://githubsfdeploy.herokuapp.com?owner=TheVishnuKumar&repo=">
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=TheVishnuKumar&repo=one-pub-sub-lwc">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-**Demo:** 
 
 Features
 -------------
-- Subscribe and handle pubsub events using declarativey.
-- One framework that works in LWC and Aura Component.
-- Reduces the code errors.
-- Uniformaity across the LWC and Aura Components.
-- Use namespace to define the bundle of events.
-- *Future Release* More features are coming.
+- Subscribe and handle PubSub events using declaratively.
+- One framework for PubSub that works in both LWC and Aura Component.
+- Reduces code errors.
+- Uniformity across the LWC and Aura Components to use the PubSub events.
+- Use namespace to define the group the events.
+- The pattern of use is quite the same as the Aura Component events. Easy for the Aura Component Developers.
+- *Future Release* More features will be there.
 
 
 Documentation
 -------------
-One Library: This is pub sub library to register and handle events. It is single solution that can be used in LWC and Aura when it comes to PubSub. It allows you to send and recieve event from 
-LWC to LWC
-LWC to Aura
-Aura to LWC
-Aura to Aura
+One Library: This is a PubSub library to fire and handle events. It is a single solution that can be used in LWC and Aura when it comes to PubSub. It allows you to send and receive an event from:
+1. LWC to LWC
+2. LWC to Aura
+3. Aura to LWC
+4. Aura to Aura
 
-The uniformaty of using the one library allows you to code less error prone.
+The uniformity of using the one library allows you to write the code less error-prone.
 
-Register Event:
-
-Registring event in Aura Component:
+**Register Event:**
+The registering event in Aura Component:
 <c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event"></c:one_register_event>
 
-Registring event in LWC Component:
+The registering event in LWC:
 <c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event"></c-one_register_event>
 
-Hnading Events:
+**Hnading Events:**
 Handling event in Aura Component:
 <c:one_event_handler name="EVENT_NAME" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
 
-Handling event in LWC Component:
+Handling event in LWC:
 <c-one_event_handler name="EVENT_NAME" namespace="astro" onaction={handleEvent}></c-one_event_handler>
 
 
 Attributes
 ----------
-This component has three types of attributes.
-1. **name**: This is required attribute. Define the name of the pubsub event to subscribe and fire.
+This component has two types of attributes.
+1. **name**: This is the required attribute. Define the name of the PubSub event to subscribe and fire.
 
-2. **namespace**: This is an optional attribute. It does allow you to budle the events for particaular feature. Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can divide them using namespace. You can have 'refresh-list' event name in both the module.
+2. **namespace**: This is an optional attribute. It does allow you to bundle the events for a particular feature/module.
+Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can divide them using the namespace. You can have 'refresh-list' event name in both the module.
 
 
 Events
 ------
 This component has one type of event.
-1. **onaction**: This event fire when any subcribed event get fired. This return the data that is passed in the event firing.
-You can get payload from this: 
+1. **onaction**: This event fire when any subscribed event received. It returns the data that is passed in the event firing.
+You can get payload from this:
 1.1) LWC: event.detail.payload;
 1.2) Aura: event.getParam('payload');
 
 
 Methods
 ----------
-This component one types of methods that you can use to re-subscribe, unsubscribe and check the status of the subscription.
+This component one type of method that you can use to fire the PubSub event.
 1. **fire()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
 1.1) LWC: this.template.querySelector('.<Class Name>').fire('Fired Event from LWC.');
 1.2) Aura: component.find("<Aura ID>").fire('Fired Event from Aura Component.');
@@ -72,7 +74,7 @@ This component one types of methods that you can use to re-subscribe, unsubscrib
 
 Example
 -------------
-We are having four components here for demo. Two are LWC and Two are Aura Component. These components will be firing events and the handling event.
+We are having four components here for the demo. Two are LWC and two are Aura Component. These components will be firing events and the handling event.
 
 **Step 1.** Create demo_component_1 lightning web component. This component is firing the event.
 ```html
@@ -217,4 +219,3 @@ export default class Demo_component_2 extends LightningElement {
 
 
 Code on  <a href="https://gist.github.com/TheVishnuKumar/2f7fb4c8dba46142e14342391c56661c">gist</a>
-
