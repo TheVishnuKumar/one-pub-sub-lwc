@@ -44,22 +44,26 @@ Handling event in LWC Component:
 Attributes
 ----------
 This component has three types of attributes.
-1. **name**: This is required attribute. Define the channel name. Ex:  /topic/NewContactCreated and event/My_Event__e.
+1. **name**: This is required attribute. Define the name of the pubsub event to subscribe and fire.
 
-2. **namespace**: This is an optional attribute. It defines that which API version will be used for cometd. If you omit this then it will take 45.0 as the default version.
+2. **namespace**: This is an optional attribute. It does allow you to budle the events for particaular feature. Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can divide them using namespace. You can have 'refresh-list' event name in both the module.
 
 
 Events
 ------
-This component has two types of events.
-1. **onaction**: This event fire when any streaming API sends the payload/message. You need to define the handler for your component to get the value from this event.
-You can get payload from this: event.detail.payload
+This component has one type of event.
+1. **onaction**: This event fire when any subcribed event get fired. This return the data that is passed in the event firing.
+You can get payload from this: 
+1.1) LWC: event.detail.payload;
+1.2) Aura: event.getParam('payload');
 
 
 Methods
 ----------
-This component has three types of methods that you can use to re-subscribe, unsubscribe and check the status of the subscription.
-1. **fire()**: Subscribe the channel if it was destroyed or unsubscribe. You cannot Subscribe a channel if it already Subscribed. It prevents the multiple payload event from streaming API.
+This component one types of methods that you can use to re-subscribe, unsubscribe and check the status of the subscription.
+1. **fire()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
+1.1) LWC: this.template.querySelector('.<Class Name>').fire('Fired Event from LWC.');
+1.2) Aura: component.find("<Aura ID>").fire('Fired Event from Aura Component.');
 
 
 Example
