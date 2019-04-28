@@ -2,7 +2,17 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/one_event_handler": [
+                "one_event_handler/one_event_handler.js"
+            ],
+            "c/one_pubsub": [
+                "one_pubsub/one_pubsub.js"
+            ],
+            "c/one_register_event": [
+                "one_register_event/one_register_event.js"
+            ]
+        }
     },
     "include": [
         "**/*",
