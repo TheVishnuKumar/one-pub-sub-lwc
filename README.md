@@ -80,7 +80,7 @@ This component three types of method that you can use to fire, register and unre
 2.1) LWC: this.template.querySelector('.CLASS_NAME').register();
 2.2) Aura: component.find("AURA_ID").register();
 
-3. **unregister()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
+3. **unregister()**: It will unregister the pubsub event. You can unregister the event:
 3.1) LWC: this.template.querySelector('.CLASS_NAME').unregister();
 3.2) Aura: component.find("AURA_ID").unregister();
 
