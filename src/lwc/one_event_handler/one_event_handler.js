@@ -25,8 +25,31 @@ export default class One_event_handler extends LightningElement {
      * @desc This is part of One PubSub framework. Register the pubsub event.
     */
     connectedCallback(){
+        this.register();
+    }
+
+    /**
+     * @author Vishnu Kumar
+     * @email vishnukummarramawat@gmail.com
+     * @desc This is part of One PubSub framework. Register the pubsub event.
+    */
+    register(){
         if( this.name ){
             pubsub.register(this.namespace +'__'+ this.name, this.eventFired.bind(this));
+        }
+        else{
+            console.error('One PubSub: Name must be defined.');
+        }
+    }
+
+    /**
+     * @author Vishnu Kumar
+     * @email vishnukummarramawat@gmail.com
+     * @desc This is part of One PubSub framework. Unregister the pubsub event.
+    */
+    unregister(){
+        if( this.name ){
+            pubsub.unregister(this.namespace +'__'+ this.name, this.eventFired.bind(this));
         }
         else{
             console.error('One PubSub: Name must be defined.');

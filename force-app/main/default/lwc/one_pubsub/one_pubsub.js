@@ -43,5 +43,5 @@ const fire = (eventName, payload) => {
 export default {
     register,
     unregister,
-    fire,
+    fire
 };

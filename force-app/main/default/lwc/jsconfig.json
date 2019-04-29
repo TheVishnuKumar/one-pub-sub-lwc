@@ -11,6 +11,12 @@
             ],
             "c/one_register_event": [
                 "one_register_event/one_register_event.js"
+            ],
+            "c/demo_component_1": [
+                "demo_component_1/demo_component_1.js"
+            ],
+            "c/demo_component_2": [
+                "demo_component_2/demo_component_2.js"
             ]
         }
     },
