@@ -239,6 +239,8 @@ export default class Demo_component_2 extends LightningElement {
 
 Code on  <a href="https://gist.github.com/TheVishnuKumar/2f7fb4c8dba46142e14342391c56661c">gist</a>
 
+Release
+-------------
 v1.0: Initial Release
 
 v1.1: 
