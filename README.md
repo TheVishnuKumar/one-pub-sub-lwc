@@ -71,10 +71,18 @@ You can get payload from this:
 
 Methods
 ----------
-This component one type of method that you can use to fire the PubSub event.
+This component three types of method that you can use to fire, register and unregister the PubSub event.
 1. **fire()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
-1.1) LWC: this.template.querySelector('.<Class Name>').fire('Fired Event from LWC.');
-1.2) Aura: component.find("<Aura ID>").fire('Fired Event from Aura Component.');
+1.1) LWC: this.template.querySelector('.CLASS_NAME').fire('Fired Event from LWC.');
+1.2) Aura: component.find("AURA_ID").fire('Fired Event from Aura Component.');
+
+2. **register()**: It will register the pubsub event. You can register the event:
+2.1) LWC: this.template.querySelector('.CLASS_NAME').register();
+2.2) Aura: component.find("AURA_ID").register();
+
+3. **unregister()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
+3.1) LWC: this.template.querySelector('.CLASS_NAME').unregister();
+3.2) Aura: component.find("AURA_ID").unregister();
 
 One PubSub Flow
 ----------
@@ -230,3 +238,9 @@ export default class Demo_component_2 extends LightningElement {
 
 
 Code on  <a href="https://gist.github.com/TheVishnuKumar/2f7fb4c8dba46142e14342391c56661c">gist</a>
+
+v1.0: Initial Release
+
+v1.1: 
+1. Added register api
+1. Added unregister api
