@@ -157,17 +157,6 @@ export default class Demo_component_1 extends LightningElement {
 }
 ```
 
-```html
-<?xml version="1.0" encoding="UTF-8"?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="demo_component_1">
-    <apiVersion>45.0</apiVersion>
-    <isExposed>true</isExposed>
-    <targets>
-        <target>lightning__HomePage</target>
-    </targets>
-</LightningComponentBundle>
-```
-
 **Step 2.** Create demo_component_2 lightning web component. This component is handling the event.
 ```html
 <template>
@@ -195,17 +184,6 @@ export default class Demo_component_2 extends LightningElement {
         this.data = event.detail.payload;
     }
 }
-```
-
-```html
-<?xml version="1.0" encoding="UTF-8"?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="demo_component_2">
-    <apiVersion>45.0</apiVersion>
-    <isExposed>true</isExposed>
-    <targets>
-        <target>lightning__HomePage</target>
-    </targets>
-</LightningComponentBundle>
 ```
 
 **Step 3.** Create aura_component_1 Aura Component. This component is handling the event.
