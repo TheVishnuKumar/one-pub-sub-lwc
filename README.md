@@ -38,19 +38,26 @@ The uniformity of using the one library allows you to write the code less error-
 **Register Event:**
 
 A. Registering event in Aura Component:<br/>
+```html
 <c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event"></c:one_register_event>
+```
 
 B. Registering event in LWC:<br/>
+```html
 <c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event"></c-one_register_event>
+```
 
 **Handling Events:**
 
 A. Handling event in Aura Component:<br/>
+```html
 <c:one_event_handler name="EVENT_NAME" namespace="astro" onaction="{!c.handleEvent}"></c:one_event_handler>
+```
 
 B. Handling event in LWC:<br/>
+```html
 <c-one_event_handler name="EVENT_NAME" namespace="astro" onaction={handleEvent}></c-one_event_handler>
-
+```
 
 Attributes
 ----------
@@ -60,8 +67,7 @@ This component has three types of attributes.
 2. **namespace**: This is an optional attribute. It does allow you to bundle the events for a particular feature/module.<br/>
 Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can separate them using the namespace. You can have 'refresh-list' event name in both the module.
 
-3. **timeout**: This is an optional attribute. The supported type is number and it doees take inpit of milliseconds. If this is defined then the event will be fired after the defined milliseconds in the timeout.
-It can also be filled in the JS class.
+3. **timeout**: This is an optional attribute. The supported type is number and it does take input of milliseconds. If this is defined then the event will be fired after the defined milliseconds in the timeout.
 Ex:
 ```javascript
 3.1)LWC: 
