@@ -121,6 +121,8 @@ One PubSub Flow
        src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/One%20PubSub.jpg">
 </div>
 
+**Want to contribute?** Fork the repo and create the pull request.
+
 Example
 -------------
 We are having four components here for the demo. Two are LWC and two are Aura Component. These components will be firing events and the handling event.
