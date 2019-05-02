@@ -82,24 +82,31 @@ Events
 This component has one type of event.
 1. **onaction**: This event fire when any subscribed event received. It returns the data that is passed in the event firing.
 You can get payload from this:
+```javascript
 1.1) LWC: event.detail.payload;
 1.2) Aura: event.getParam('payload');
-
+```
 
 Methods
 ----------
 This component three types of method that you can use to fire, register and unregister the PubSub event.
 1. **fire()**: It will fire the pubsub event. It does also accept the data. You can fire the event:
+```javascript
 1.1) LWC: this.template.querySelector('.CLASS_NAME').fire('Fired Event from LWC.');
 1.2) Aura: component.find("AURA_ID").fire('Fired Event from Aura Component.');
+```
 
 2. **register()**: It will register the pubsub event. You can register the event:
+```javascript
 2.1) LWC: this.template.querySelector('.CLASS_NAME').register();
 2.2) Aura: component.find("AURA_ID").register();
+```
 
 3. **unregister()**: It will unregister the pubsub event. You can unregister the event:
+```javascript
 3.1) LWC: this.template.querySelector('.CLASS_NAME').unregister();
 3.2) Aura: component.find("AURA_ID").unregister();
+```
 
 One PubSub Flow
 ----------
