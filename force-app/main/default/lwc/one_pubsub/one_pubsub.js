@@ -1,3 +1,7 @@
+/*
+Note: Initial code was taken from lwc-recipes and modified the code for the One PubSub.
+https://github.com/trailheadapps/lwc-recipes/blob/master/force-app/main/default/lwc/pubsub/pubsub.js
+*/
 /* eslint-disable @lwc/lwc/no-async-operation */
 const callbacks = {};
 
