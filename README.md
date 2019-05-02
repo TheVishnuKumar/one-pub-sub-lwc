@@ -15,12 +15,13 @@ Blog: <a href="http://www.0to1code.com/one-pubsub-a-pubsub-library-for-lightning
 
 Features
 -------------
-- Subscribe and handle PubSub events using declaratively.
-- One framework for PubSub that works in both LWC and Aura Component.
+- Subscribe and handle PubSub events using **declaratively**.
+- One framework for PubSub that works in both **LWC and Aura Component**.
 - Reduces code errors.
-- Uniformity across the LWC and Aura Components to use the PubSub events.
-- Use namespace to define the group the events.
+- **Uniformity** across the LWC and Aura Components to use the PubSub events.
+- Use **namespace** to define the group the events.
 - The pattern of use is quite the same as the Aura Component events. Easy for the Aura Component Developers.
+- Fire the event using **timeout**. This will allows your perform the action on after defined timeframe.
 - **Future Release** More features will be here.
 
 
@@ -53,12 +54,28 @@ B. Handling event in LWC:<br/>
 
 Attributes
 ----------
-This component has two types of attributes.
+This component has three types of attributes.
 1. **name**: This is the required attribute. Define the name of the PubSub event to subscribe and fire.
 
 2. **namespace**: This is an optional attribute. It does allow you to bundle the events for a particular feature/module.<br/>
 Ex: If you have 6 components on the same screen and 3 - 3 components are related to some functionality. You can separate them using the namespace. You can have 'refresh-list' event name in both the module.
 
+3. **timeout**: This is an optional attribute. The supported type is number and it doees take inpit of milliseconds. If this is defined then the event will be fired after the defined milliseconds in the timeout.
+It can also be filled in the JS class.
+Ex:
+```javascript
+3.1)LWC: 
+let pubsubCmp = this.template.querySelector('.CLASS_NAME');
+pubsubCmp.timeout = 5000;
+pubsubCmp.fire('Fired Event from LWC.')
+```
+
+```javascript
+3.2) Aura: 
+let pubsubCmp = component.find("AURA_ID");
+pubsubCmp.timeout = 5000;
+pubsubCmp.fire('Fired Event from Aura Component.');
+```
 
 Events
 ------
@@ -246,3 +263,6 @@ v1.0: Initial Release
 v1.1: 
 1. Added register api
 1. Added unregister api
+
+v1.2: 
+1. Added timeout event firing. Fire an event after defined time.
