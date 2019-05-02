@@ -114,13 +114,6 @@ This component three types of method that you can use to fire, register and unre
 3.2) Aura: component.find("AURA_ID").unregister();
 ```
 
-One PubSub Flow
-----------
-<div align="center">
-<img alt="One PubSub for Lightning Web Component and Lightning Component"
-       src="https://raw.githubusercontent.com/TheVishnuKumar/one-pub-sub-lwc/master/One%20PubSub.jpg">
-</div>
-
 **Want to contribute?** Fork the repo and create the pull request.
 
 Example
