@@ -221,10 +221,10 @@
         {
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub",
             "isDirectory": true,
-            "size": 448,
-            "modifiedTime": 1556515322068,
-            "changeTime": 1556515322068,
-            "contentHash": "7623ccd12da4cfe60370280e2d015257e2763e48",
+            "size": 480,
+            "modifiedTime": 1556522980427,
+            "changeTime": 1556522980427,
+            "contentHash": "fef0d8c38165e158aa4327fecf97476501a437fb",
             "isMetadataFile": false,
             "state": "u",
             "isWorkspace": true
@@ -261,10 +261,10 @@
         {
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.html",
             "isDirectory": false,
-            "size": 405,
-            "modifiedTime": 1556516286924,
-            "changeTime": 1556425821890,
-            "contentHash": "1850ead721cc169bbdb2335d69569fc051ed8043",
+            "size": 418,
+            "modifiedTime": 1556793287912,
+            "changeTime": 1556793287912,
+            "contentHash": "323b3f741ed8a22a4d8e1f0ce848b18b1fcd452e",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -272,14 +272,14 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.js",
         {
+            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.js",
             "isDirectory": false,
-            "size": 214,
-            "modifiedTime": 1556516295491,
-            "changeTime": 1556421605111,
-            "contentHash": "24ce04ccb2877b210a337406f04f7e45187544ee",
             "isMetadataFile": false,
-            "state": "u"
+            "size": 265,
+            "modifiedTime": 1556793383774,
+            "changeTime": 1556793383774,
+            "contentHash": "b12dfd2bc344f16fb10c75a91557327d9c81eaa5"
         }
     ],
     [
@@ -301,8 +301,8 @@
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_2/demo_component_2.html",
             "isDirectory": false,
             "size": 519,
-            "modifiedTime": 1556517062927,
-            "changeTime": 1556517062927,
+            "modifiedTime": 1556793233143,
+            "changeTime": 1556793233143,
             "contentHash": "a332c9591454cd8375d7c8df06bb5a7e4ef05093",
             "isMetadataFile": false,
             "state": "u"
@@ -662,14 +662,14 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/one_pubsub/one_pubsub.js",
         {
-            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/one_pubsub/one_pubsub.js",
             "isDirectory": false,
+            "size": 1946,
+            "modifiedTime": 1556793353850,
+            "changeTime": 1556793353850,
+            "contentHash": "2c741fd39985a704fe34ba6a3c81d99fc3008270",
             "isMetadataFile": false,
-            "size": 1184,
-            "modifiedTime": 1556519302621,
-            "changeTime": 1556519302621,
-            "contentHash": "5da9eb17748af3b16378a0795062bc7c07d97e25"
+            "state": "u"
         }
     ],
     [
@@ -690,10 +690,10 @@
         {
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/one_register_event/one_register_event.js",
             "isDirectory": false,
-            "size": 743,
-            "modifiedTime": 1556425838312,
-            "changeTime": 1556425838312,
-            "contentHash": "279605016aeee18437429ae08355adab47dd0b7b",
+            "size": 779,
+            "modifiedTime": 1556793029166,
+            "changeTime": 1556793029166,
+            "contentHash": "432b900b7264f09df947571b3482f857f4bd0b3b",
             "isMetadataFile": false,
             "state": "u"
         }

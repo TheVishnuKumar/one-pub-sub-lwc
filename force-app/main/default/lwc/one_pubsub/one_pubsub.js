@@ -1,3 +1,4 @@
+/* eslint-disable @lwc/lwc/no-async-operation */
 const callbacks = {};
 
 /**
@@ -28,16 +29,43 @@ const unregister = (eventName, callback) => {
  * @param {string} eventName - Name of the event to fire.
  * @param {*} payload - Payload of the event to fire.
  */
-const fire = (eventName, payload) => {
-    if (callbacks[eventName]) {
-        callbacks[eventName].forEach(callback => {
-            try {
-                callback(payload);
-            } catch (error) {
-                // fail silently
+const fire = (eventName, payload, timeout) => {
+    // let reg = new RegExp(eventName);
+    // console.log('--eventName--'+eventName);
+
+    // for (let property in callbacks) {
+    //     if( property.match(reg) ){
+    //         console.log('--property inside--'+property);
+    //     }
+    // }
+    //Fire with timeout
+    if( timeout !== 0 ){
+        setTimeout(function(){ 
+            if (callbacks[eventName]) {
+                callbacks[eventName].forEach(callback => {
+                    try {
+                        callback(payload);
+                    } catch (error) {
+                        // fail silently
+                    }
+                });
             }
-        });
+
+        }, timeout);
     }
+    else{
+        if (callbacks[eventName]) {
+            callbacks[eventName].forEach(callback => {
+                try {
+                    callback(payload);
+                } catch (error) {
+                    // fail silently
+                }
+            });
+        }
+    }
+
+    
 };
 
 export default {

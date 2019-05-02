@@ -9,6 +9,7 @@ import pubsub from 'c/one_pubsub';
 export default class One_register_event extends LightningElement {
     @api name = '';
     @api namespace = '';
+    @api timeout = 0;
 
     /**
      * @author Vishnu Kumar
@@ -18,7 +19,7 @@ export default class One_register_event extends LightningElement {
     @api
     fire(data){
         if( this.name ){
-            pubsub.fire(this.namespace +'__'+ this.name, data);
+            pubsub.fire(this.namespace +'__'+ this.name, data, this.timeout);
         }
         else{
             console.error('One PubSub: Name must be defined.');
