@@ -39,12 +39,12 @@ The uniformity of using the one library allows you to write the code less error-
 
 A. Registering event in Aura Component:<br/>
 ```html
-<c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event"></c:one_register_event>
+<c:one_register_event name="EVENT_NAME" namespace="astro" aura:id="first-event" timeout=1000></c:one_register_event>
 ```
 
 B. Registering event in LWC:<br/>
 ```html
-<c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event"></c-one_register_event>
+<c-one_register_event name="EVENT_NAME" namespace="astro" class="first-event" timeout=1000></c-one_register_event>
 ```
 
 **Handling Events:**
