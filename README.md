@@ -22,7 +22,8 @@ Features
 - Use **namespace** to define the group the events.
 - The pattern of use is quite the same as the Aura Component events. Easy for the Aura Component Developers.
 - Fire the event using **timeout**. This will allows your perform the action on after defined timeframe.
-- **Future Release** More features will be here.
+
+- **Future Release** Fire event using wlid cards.
 
 
 Documentation
