@@ -9,14 +9,14 @@
             "c/demo_component_2": [
                 "demo_component_2/demo_component_2.js"
             ],
-            "c/one_event_handler": [
-                "one_event_handler/one_event_handler.js"
+            "c/handleEvent": [
+                "handleEvent/handleEvent.js"
             ],
             "c/one_pubsub": [
                 "one_pubsub/one_pubsub.js"
             ],
-            "c/one_register_event": [
-                "one_register_event/one_register_event.js"
+            "c/registerEvent": [
+                "registerEvent/registerEvent.js"
             ]
         }
     },

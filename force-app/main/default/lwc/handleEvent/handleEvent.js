@@ -3,14 +3,26 @@
  * @email vishnukummarramawat@gmail.com
  * @desc This is part of One PubSub framework. This JS provide mechanism to handle the events.
 */
-import { LightningElement,api } from 'lwc';
+import { LightningElement,api,wire } from 'lwc';
 import pubsub from 'c/one_pubsub';
+import { CurrentPageReference } from 'lightning/navigation';
 
-export default class One_event_handler extends LightningElement {
+
+export default class HandleEvent extends LightningElement {
     @api name = '';
     @api namespace = '';
+    @api pagereference;
+    currentPageReference = '';
     eventFiredCallback;
 
+    @wire(CurrentPageReference)
+    setCurrentPageReference(currentPageReference) {
+        if( this.pagereference ){
+            this.currentPageReference = currentPageReference;
+        }
+        this.eventFiredCallback = this.eventFired.bind(this);
+        this.subscribe();
+    }
     /**
      * @author Vishnu Kumar
      * @email vishnukummarramawat@gmail.com
@@ -23,12 +35,10 @@ export default class One_event_handler extends LightningElement {
     /**
      * @author Vishnu Kumar
      * @email vishnukummarramawat@gmail.com
-     * @desc This is part of One PubSub framework. Register the pubsub event.
+     * @desc This is part of One PubSub framework. Unregister the pubsub event when component is removed from DOM.
     */
-    connectedCallback(){
-        this.eventFiredCallback = this.eventFired.bind(this);
-
-        this.register();
+    disconnectedCallback(){
+        this.unsubscribe();
     }
 
     /**
@@ -37,9 +47,9 @@ export default class One_event_handler extends LightningElement {
      * @desc This is part of One PubSub framework. Register the pubsub event.
     */
     @api
-    register(){
+    subscribe(){
         if( this.name ){
-            pubsub.register(this.namespace +'__'+ this.name, this.eventFiredCallback );
+            pubsub.register( pubsub.buildEventName(this.currentPageReference, this.namespace, this.name) , this.eventFiredCallback );
         }
         else{
             console.error('One PubSub: Name must be defined.');
@@ -52,9 +62,9 @@ export default class One_event_handler extends LightningElement {
      * @desc This is part of One PubSub framework. Unregister the pubsub event.
     */
     @api
-    unregister(){
+    unsubscribe(){
         if( this.name ){
-            pubsub.unregister(this.namespace +'__'+ this.name, this.eventFiredCallback );
+            pubsub.unregister( pubsub.buildEventName(this.currentPageReference, this.namespace, this.name) , this.eventFiredCallback );
         }
         else{
             console.error('One PubSub: Name must be defined.');

@@ -13,20 +13,13 @@ const register = (eventName, callback) => {
 };
 
 const unregister = (eventName, callback) => {
+    
     if (callbacks[eventName]) {
         callbacks[eventName].delete(callback);
     }
 };
 
 const fire = (eventName, payload, timeout) => {
-    // let reg = new RegExp(eventName);
-    // console.log('--eventName--'+eventName);
-
-    // for (let property in callbacks) {
-    //     if( property.match(reg) ){
-    //         console.log('--property inside--'+property);
-    //     }
-    // }
     //Fire with timeout
     if( timeout !== 0 ){
         setTimeout(function(){ 
@@ -53,12 +46,34 @@ const fire = (eventName, payload, timeout) => {
             });
         }
     }
-
-    
 };
+
+/**
+ * Fires an event to listeners.
+ * @param {string} eventName - Name of the event to fire.
+ * @param {*} payload - Payload of the event to fire.
+ */
+const fireWithNamespace = (eventName, payload, timeout) => {
+    //Fire with timeout
+    let keysStartingWithNamespace =
+    Object.keys(callbacks).filter(function (key) {
+      return key.startsWith(eventName);
+    });
+
+    keysStartingWithNamespace.forEach(eName=>{
+        fire(eName, payload, timeout);
+    });
+};
+
+const buildEventName = (pRef, namespace, name) => {
+    namespace = 'ONE_' + namespace + '_ONE';
+    return namespace + '__' + pRef + '__' + name;
+}
 
 export default {
     register,
     unregister,
-    fire
+    fire,
+    fireWithNamespace,
+    buildEventName
 };
