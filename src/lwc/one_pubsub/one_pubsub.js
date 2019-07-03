@@ -1,10 +1,10 @@
+/*
+Note: Initial code was taken from lwc-recipes and modified the code for the One PubSub.
+https://github.com/trailheadapps/lwc-recipes/blob/master/force-app/main/default/lwc/pubsub/pubsub.js
+*/
+/* eslint-disable @lwc/lwc/no-async-operation */
 const callbacks = {};
 
-/**
- * Registers a callback for an event
- * @param {string} eventName - Name of the event to listen for.
- * @param {function} callback - Function to invoke when said event is fired.
- */
 const register = (eventName, callback) => {
     if (!callbacks[eventName]) {
         callbacks[eventName] = new Set();
@@ -12,14 +12,39 @@ const register = (eventName, callback) => {
     callbacks[eventName].add(callback);
 };
 
-/**
- * Unregisters a callback for an event
- * @param {string} eventName - Name of the event to unregister from.
- * @param {function} callback - Function to unregister.
- */
 const unregister = (eventName, callback) => {
+    
     if (callbacks[eventName]) {
         callbacks[eventName].delete(callback);
+    }
+};
+
+const fire = (eventName, payload, timeout) => {
+    //Fire with timeout
+    if( timeout !== 0 ){
+        setTimeout(function(){ 
+            if (callbacks[eventName]) {
+                callbacks[eventName].forEach(callback => {
+                    try {
+                        callback(payload);
+                    } catch (error) {
+                        // fail silently
+                    }
+                });
+            }
+
+        }, timeout);
+    }
+    else{
+        if (callbacks[eventName]) {
+            callbacks[eventName].forEach(callback => {
+                try {
+                    callback(payload);
+                } catch (error) {
+                    // fail silently
+                }
+            });
+        }
     }
 };
 
@@ -28,20 +53,27 @@ const unregister = (eventName, callback) => {
  * @param {string} eventName - Name of the event to fire.
  * @param {*} payload - Payload of the event to fire.
  */
-const fire = (eventName, payload) => {
-    if (callbacks[eventName]) {
-        callbacks[eventName].forEach(callback => {
-            try {
-                callback(payload);
-            } catch (error) {
-                // fail silently
-            }
-        });
-    }
+const fireWithNamespace = (eventName, payload, timeout) => {
+    //Fire with timeout
+    let keysStartingWithNamespace =
+    Object.keys(callbacks).filter(function (key) {
+      return key.startsWith(eventName);
+    });
+
+    keysStartingWithNamespace.forEach(eName=>{
+        fire(eName, payload, timeout);
+    });
 };
+
+const buildEventName = (pRef, namespace, name) => {
+    namespace = 'ONE_' + namespace + '_ONE';
+    return namespace + '__' + pRef + '__' + name;
+}
 
 export default {
     register,
     unregister,
     fire,
+    fireWithNamespace,
+    buildEventName
 };

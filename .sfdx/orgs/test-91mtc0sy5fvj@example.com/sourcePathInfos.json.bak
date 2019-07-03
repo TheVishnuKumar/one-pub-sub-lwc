@@ -151,16 +151,15 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/aura/aura_component_2/aura_component_2.cmp",
         {
+            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/aura/aura_component_2/aura_component_2.cmp",
             "isDirectory": false,
-            "size": 480,
-            "modifiedTime": 1562136266106,
-            "changeTime": 1562136266106,
-            "contentHash": "2c7cd67dd5f4e33f652e9d086e9c0bca45897471",
             "isMetadataFile": false,
-            "state": "u",
+            "size": 501,
+            "modifiedTime": 1562144521955,
+            "changeTime": 1562144521955,
             "isWorkspace": false,
-            "isArtifactRoot": false
+            "contentHash": "61138363d535b811940c4cbe553d9e6864d99d93"
         }
     ],
     [
@@ -315,15 +314,15 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.html",
         {
-            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.html",
             "isDirectory": false,
-            "isMetadataFile": false,
             "size": 411,
             "modifiedTime": 1562144459666,
             "changeTime": 1562144459666,
-            "isWorkspace": false,
-            "contentHash": "6dc6782a7e219a6e51f80afda826e023c40006e5"
+            "contentHash": "6dc6782a7e219a6e51f80afda826e023c40006e5",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
         }
     ],
     [

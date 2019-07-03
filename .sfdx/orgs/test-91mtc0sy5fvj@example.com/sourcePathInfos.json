@@ -151,15 +151,15 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/aura/aura_component_2/aura_component_2.cmp",
         {
-            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/aura/aura_component_2/aura_component_2.cmp",
             "isDirectory": false,
-            "isMetadataFile": false,
             "size": 501,
             "modifiedTime": 1562144521955,
             "changeTime": 1562144521955,
-            "isWorkspace": false,
-            "contentHash": "61138363d535b811940c4cbe553d9e6864d99d93"
+            "contentHash": "61138363d535b811940c4cbe553d9e6864d99d93",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
         }
     ],
     [
@@ -328,15 +328,15 @@
     [
         "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.js",
         {
+            "state": "u",
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub/force-app/main/default/lwc/demo_component_1/demo_component_1.js",
             "isDirectory": false,
-            "size": 569,
-            "modifiedTime": 1562143176307,
-            "changeTime": 1562143176307,
-            "contentHash": "1f716bb1c8a421ebc419fcc4d8fdca74a2ee0fc5",
             "isMetadataFile": false,
-            "state": "u",
-            "isWorkspace": false
+            "size": 299,
+            "modifiedTime": 1562149688703,
+            "changeTime": 1562149688703,
+            "isWorkspace": false,
+            "contentHash": "bdcc8acb729c0f6fd72d5588d04326822eada418"
         }
     ],
     [
@@ -4058,7 +4058,7 @@
             "sourcePath": "/Users/vishnukumar/Desktop/workspace/one-pub-sub",
             "isDirectory": true,
             "size": 512,
-            "modifiedTime": 1562135158167,
+            "modifiedTime": 1562149434485,
             "changeTime": 1562135158167,
             "contentHash": "b97395fc68d3a3e25f14e59417bd57d081b6461c",
             "isMetadataFile": false,

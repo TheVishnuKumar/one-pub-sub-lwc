@@ -3,12 +3,6 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/demo_component_1": [
-                "demo_component_1/demo_component_1.js"
-            ],
-            "c/demo_component_2": [
-                "demo_component_2/demo_component_2.js"
-            ],
             "c/handleEvent": [
                 "handleEvent/handleEvent.js"
             ],

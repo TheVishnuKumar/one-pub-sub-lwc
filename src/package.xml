@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
   <types>
     <name>LightningComponentBundle</name>
-    <members>one_event_handler</members>
+    <members>handleEvent</members>
     <members>one_pubsub</members>
-    <members>one_register_event</members>
+    <members>registerEvent</members>
   </types>
   <version>45.0</version>
 </Package>
