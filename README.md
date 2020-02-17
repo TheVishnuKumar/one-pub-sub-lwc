@@ -107,8 +107,8 @@ This component three types of method that you can use to fire, register and unre
 
 2. **publishToNamespace()**: It will fire the pubsub event for all the evenet that comes in the specified namespace. It does also accept the data. You can fire the event:
 ```javascript
-1.1) LWC: this.template.querySelector('.CLASS_NAME').fireWithNamespace('Fired All Events from LWC.');
-1.2) Aura: component.find("AURA_ID").fireWithNamespace('Fired All Events from Aura Component.');
+1.1) LWC: this.template.querySelector('.CLASS_NAME').publishToNamespace('Fired All Events from LWC.');
+1.2) Aura: component.find("AURA_ID").publishToNamespace('Fired All Events from Aura Component.');
 ```
 
 3. **subscribe()**: It will subscribe the pubsub event. You can subscribe the event:
