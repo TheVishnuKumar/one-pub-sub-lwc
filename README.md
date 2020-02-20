@@ -117,7 +117,7 @@ This component three types of method that you can use to fire, register and unre
 2.2) Aura: component.find("AURA_ID").subscribe();
 ```
 
-4. **unregister()**: It will unsubscribe the pubsub event. You can unsubscribe the event:
+4. **unsubscribe()**: It will unsubscribe the pubsub event. You can unsubscribe the event:
 ```javascript
 3.1) LWC: this.template.querySelector('.CLASS_NAME').unsubscribe();
 3.2) Aura: component.find("AURA_ID").unsubscribe();
