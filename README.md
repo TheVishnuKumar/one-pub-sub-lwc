@@ -85,7 +85,7 @@ pubsubCmp.timeout = 5000;
 pubsubCmp.publish('Fired Event from Aura Component.');
 ```
 
-4. **pagereference**: This is an optional attribute. If this is true then register and handlers both respect the current page reference. If this is being used then make sure that bot register and handler should have this property marked as true.
+4. **pagereference**: This is an optional attribute. If this is true then register and handlers both respect the current page reference. If this is being used then make sure that both register and handler should have this property marked as true.
 
 Events
 ------
