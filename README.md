@@ -56,7 +56,8 @@ A. Handling event in Aura Component:<br/>
 
 B. Handling event in LWC:<br/>
 ```html
-c-handle-event name="EVENT_NAME" namespace="astro" class="event-class" onaction={handleEvent} pagereference="true"></c-handle-event>
+
+<c-handle-event name="EVENT_NAME" namespace="astro" class="event-class" onaction={handleEvent} pagereference="true"></c-handle-event>
 ```
 
 Attributes
